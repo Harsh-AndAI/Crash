@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+  --color-brand-blue: #0097B2;
+  --color-brand-dark: #151515;
+  --color-brand-gray: #F8FAFC;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-dark text-brand-gray antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    @apply uppercase tracking-tighter font-black;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-blue text-white px-8 py-4 font-black uppercase text-xs tracking-widest hover:bg-white hover:text-brand-dark transition-all inline-block text-center shadow-lg shadow-brand-blue/20;
+  }
+  .btn-secondary {
+    @apply border border-slate-800 text-white px-8 py-4 font-black uppercase text-xs tracking-widest hover:bg-brand-blue hover:border-brand-blue transition-all inline-block text-center;
+  }
+  .label-caps {
+    @apply text-[10px] font-bold tracking-[0.2em] uppercase text-slate-500;
+  }
+}

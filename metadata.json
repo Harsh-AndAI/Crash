@@ -1,0 +1,6 @@
+{
+  "name": "Crash Cover Replacement Vehicles",
+  "description": "Melbourne-based accident replacement vehicle provider for not-at-fault drivers, offering seamless mobility solutions and insurance claim assistance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
