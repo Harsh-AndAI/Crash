@@ -67,7 +67,7 @@ export default function Header() {
             </nav>
             
             {user ? (
-              <div className="flex items-center space-x-6 border-l border-slate-800 pl-8 ml-2">
+              <div className="hidden md:flex items-center space-x-6 border-l border-slate-800 pl-8 ml-2">
                 <Link 
                   to={role === 'admin' ? '/admin' : '/dashboard'} 
                   className="label-caps flex items-center gap-2 text-[#0097B2] hover:text-[#6ED8E9]"
@@ -84,20 +84,28 @@ export default function Header() {
                 </button>
               </div>
             ) : (
-              <div className="ml-auto flex items-center gap-6 border-l border-slate-300 pl-8">
-                <Link to="/login" className="label-caps text-[#151515] hover:text-[#0097B2] transition-colors text-[8px]">Staff Access</Link>
+              <div className="hidden md:flex ml-auto items-center gap-6 border-l border-slate-300 pl-8">
                 <Link
-                  to="/request"
-                  className="px-6 py-2 bg-[#0097B2] text-white border border-[#0097B2] rounded-md text-[10px] font-bold uppercase tracking-widest hover:bg-[#007A90] transition-all duration-300"
-                >
-                  Get a Vehicle
-                </Link>
+    to="/login"
+    onClick={() => setIsOpen(false)}
+    className="block px-3 py-4 label-caps border-b border-slate-200"
+  >
+    Staff Access
+  </Link>
+
+  <Link
+    to="/request"
+    onClick={() => setIsOpen(false)}
+    className="block px-3 py-4 label-caps border-b border-slate-200"
+  >
+    Get a Vehicle
+  </Link>
               </div>
             )}
           
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden ml-auto flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-[#151515] hover:text-[#0097B2] transition-colors"
