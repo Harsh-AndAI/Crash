@@ -177,18 +177,21 @@ lg:py-12
       confirm your eligibility.
     </p>
 
-    <a
-      href="tel:1300004487"
-      className="w-fit bg-[#0097B2] text-white px-8 py-4 rounded-full font-bold hover:bg-[#007A90] transition"
-    >
-      Call 1300 004 487
-    </a>
-    <Link
-  to="/request"
-  className="w-fit bg-[#0097B2] text-white px-8 py-4 rounded-full font-bold hover:bg-[#007A90] transition"
->
-  Apply Now
-</Link>
+<div className="flex flex-col sm:flex-row gap-4">
+  <a
+    href="tel:1300004487"
+    className="bg-[#0097B2] text-white px-8 py-4 rounded-full font-bold hover:bg-[#007A90] transition text-center"
+  >
+    Call 1300 004 487
+  </a>
+
+  <Link
+    to="/request"
+    className="bg-[#0097B2] text-white px-8 py-4 rounded-full font-bold hover:bg-[#007A90] transition text-center"
+  >
+    Apply Now
+  </Link>
+</div>
   </>
 )}
         {result === "not-eligible" && (
