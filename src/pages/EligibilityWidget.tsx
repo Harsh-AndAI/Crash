@@ -38,42 +38,38 @@ const handleAnswer = (answer: string) => {
   }
 
   const fault = updated[0];
-  const contact = updated[1];
-  const insurance = updated[2];
+const contact = updated[1];
+const insurance = updated[2];
 
-  let result = "";
+const rules: Record<string, "eligible" | "not-eligible" | "more-info"> = {
+  // Fault = No
+  "No|Yes|Yes": "eligible",
+  "No|Yes|No": "not-eligible",
+  "No|Yes|Unsure": "more-info",
+  "No|No|Yes": "more-info",
+  "No|No|No": "not-eligible",
+  "No|No|Unsure": "more-info",
 
-  if (fault === "No") {
-    if (contact === "Yes" && insurance === "Yes")
-      result = "eligible";
+  // Fault = Yes
+  "Yes|Yes|Yes": "not-eligible",
+  "Yes|Yes|No": "not-eligible",
+  "Yes|Yes|Unsure": "not-eligible",
+  "Yes|No|Yes": "not-eligible",
+  "Yes|No|No": "not-eligible",
+  "Yes|No|Unsure": "not-eligible",
 
-    else if (
-      (contact === "Yes" && insurance === "Unsure") ||
-      (contact === "No" && insurance === "Yes") ||
-      (contact === "No" && insurance === "Unsure")
-    )
-      result = "more-info";
+  // Fault = Unsure
+  "Unsure|Yes|Yes": "more-info",
+  "Unsure|Yes|No": "more-info",
+  "Unsure|Yes|Unsure": "more-info",
+  "Unsure|No|Yes": "more-info",
+  "Unsure|No|No": "not-eligible",
+  "Unsure|No|Unsure": "more-info",
+};
 
-    else
-      result = "not-eligible";
-  }
+const key = `${fault}|${contact}|${insurance}`;
 
-  else if (fault === "Yes") {
-    result = "not-eligible";
-  }
-
-  else {
-    if (
-      (contact === "Yes" && insurance !== "No") ||
-      (contact === "No" && insurance === "Yes") ||
-      (contact === "No" && insurance === "Unsure")
-    )
-      result = "more-info";
-    else
-      result = "not-eligible";
-  }
-
-setResult(result);
+setResult(rules[key]);
 };
 
 if (result) {
@@ -187,6 +183,12 @@ lg:py-12
     >
       Call 1300 004 487
     </a>
+    <Link
+  to="/request"
+  className="w-fit bg-[#0097B2] text-white px-8 py-4 rounded-full font-bold hover:bg-[#007A90] transition"
+>
+  Apply Now
+</Link>
   </>
 )}
         {result === "not-eligible" && (
