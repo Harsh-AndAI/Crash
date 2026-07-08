@@ -41,42 +41,28 @@ export default function Services() {
   ];
 
   return (
-    <div className="pt-20">
+    <div className="pt-5 min-h-screen">
       {/* Header */}
-<section className="relative overflow-hidden py-24 bg-gradient-to-br from-[#0087A3] via-[#0097B2] to-[#10B4CF]">
-  
-  {/* Left Glow */}
-  <div className="absolute -top-32 -left-24 w-80 h-80 rounded-full bg-cyan-300/20 blur-3xl"></div>
-
-  {/* Right Accent Panel */}
-  <div className="absolute top-0 right-0 w-[28%] h-full bg-[#00718A] skew-x-[-18deg] translate-x-20"></div>
-
-  {/* Small Accent Circle */}
-  <div className="absolute bottom-10 right-40 w-48 h-48 rounded-full bg-white/10 blur-3xl"></div>
-
-  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-
+{/* Header */}
+<section className="bg-brand-dark py-24 relative overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
+      className="text-center max-w-3xl mx-auto"
     >
-
-      <div className="uppercase tracking-[0.35em] text-white/70 text-sm mb-4">
-        Crash Cover
-      </div>
-
-      <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white mb-6">
-        OUR <span className="text-[#151515]">SERVICES</span>
+      <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6">
+        Our <span className="text-[#0097B2]">Services</span>
       </h1>
-<div className="w-24 h-1 bg-white/80 rounded-full mx-auto mb-8"></div>
-      <p className="max-w-3xl mx-auto text-xl leading-relaxed text-cyan-50/90">
-        Fast replacement vehicles and accident support services for eligible
-        not-at-fault drivers across Victoria.
+
+      <p className="text-xl text-gray-400 leading-relaxed">
+        Fast replacement vehicles, insurance claim assistance and accident
+        support services for eligible not-at-fault drivers across Victoria.
       </p>
-
     </motion.div>
-
   </div>
+
+  <div className="absolute top-0 right-0 w-1/3 h-full bg-[#0097B2]/10 skew-x-[-20deg] translate-x-1/2"></div>
 </section>
 
       {/* Services List */}

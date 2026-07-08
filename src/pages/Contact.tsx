@@ -17,7 +17,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-20">
+    <div className="pt-5 min-h-screen">
       {/* Header */}
 <section className="bg-brand-dark py-24 relative overflow-hidden">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -54,7 +54,6 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="font-bold text-brand-dark">Call Us</p>
-                        <p className="text-gray-600">1300 CRASH COVER</p>
                         <p className="text-sm text-gray-500">0495 00 44 55</p>
                       </div>
                     </div>

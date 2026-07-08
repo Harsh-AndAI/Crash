@@ -49,7 +49,7 @@ export default function Footer() {
             <ul className="space-y-6 text-sm text-slate-400">
               <li className="flex items-start space-x-3">
                 <div className="text-[#0097B2] font-black tracking-tighter mt-1 shrink-0 text-xs">TEL</div>
-                <span className="font-bold">1300 CRASH COVER<br /><span className="text-[10px] text-slate-500">0495 00 44 55</span></span>
+                <span className="font-bold">0495 00 44 55</span>
               </li>
               <li className="flex items-start space-x-3">
                 <div className="text-[#0097B2] font-black tracking-tighter mt-1 shrink-0 text-xs">MAIL</div>

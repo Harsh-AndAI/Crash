@@ -8,12 +8,12 @@ import RequestForm from './pages/RequestForm';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
 import Fleet from './pages/Fleet';
-import AuthPage from './pages/AuthPage';
-import CustomerDashboard from './pages/CustomerDashboard';
-import AdminDashboard from './pages/AdminDashboard';
-import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import Eligibility from "./pages/Eligibility";
+import NotEligible from "./pages/NotEligible";
+import NeedMoreInfo from "./pages/NeedMoreInfo";
+import FleetCategory from "./pages/FleetCategory";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -23,17 +23,6 @@ function ScrollToTop() {
   return null;
 }
 
-const ProtectedRoute = ({ children, role }: { children: React.ReactNode, role?: 'admin' | 'customer' }) => {
-  const { user, role: userRole, loading } = useAuth();
-  
-  if (loading) return <div className="h-screen bg-brand-dark flex items-center justify-center text-white"><div className="label-caps animate-pulse">Synchronizing...</div></div>;
-  
-  if (!user) return <Navigate to="/login" />;
-  
-  if (role && userRole !== role) return <Navigate to="/" />;
-  
-  return <>{children}</>;
-};
 function Layout() {
   const location = useLocation();
 
@@ -46,38 +35,28 @@ function Layout() {
     <div className="min-h-screen flex flex-col font-sans text-brand-gray bg-brand-dark selection:bg-brand-blue selection:text-white">
       <Header />
 
-      <main className="flex-grow">
+      <main className="flex-grow pt-1">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/how-it-works" element={<Home />} />
           <Route path="/fleet" element={<Fleet />} />
+                    <Route path="/eligibility" element={<Eligibility />} />
+          <Route
+            path="/eligibility/not-eligible"
+            element={<NotEligible />}
+          />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<AuthPage mode="login" />} />
-          <Route path="/signup" element={<AuthPage mode="signup" />} />
-
+          <Route
+            path="/eligibility/more-info"
+            element={<NeedMoreInfo />}
+          />
           {/* Customer Routes */}
           <Route path="/request" element={<RequestForm />} />
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute role="customer">
-                <CustomerDashboard />
-              </ProtectedRoute>
-            }
-          />
 
-          {/* Admin Routes */}
-          <Route
-            path="/admin"
-            element={
-              <ProtectedRoute role="admin">
-                <AdminDashboard />
-              </ProtectedRoute>
-            }
-          />
+          {/* <Route path="/fleet/:id" element={<FleetCategory />} /> */}
 
           <Route
             path="/privacy"
@@ -109,11 +88,9 @@ function Layout() {
 }
 export default function App() {
   return (
-    <AuthProvider>
       <Router>
         <ScrollToTop />
           <Layout />
       </Router>
-    </AuthProvider>
   );
 }

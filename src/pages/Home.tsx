@@ -1,39 +1,44 @@
 import { motion } from 'motion/react';
-import { CheckCircle2, ShieldCheck, Phone, Car } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, Phone, Car ,ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import EligibilityWidget from "../pages/EligibilityWidget";
 
 export default function Home() {
   const steps = [
-    {
-      number: "1",
-      title: "Contact Us",
-      description: "Tell us about your accident and provide your vehicle details.",
-      icon: <Phone className="text-white" size={24} />
-    },
-    {
-      number: "2",
-      title: "Get Approved",
-      description: "We assess your eligibility and arrange approval quickly.",
-      icon: <ShieldCheck className="text-white" size={24} />
-    },
-    {
-      number: "3",
-      title: "We Deliver",
-      description: "We deliver a like-for-like replacement vehicle directly to you.",
-      icon: <Car className="text-white" size={24} />
-    },
-    {
-      number: "4",
-      title: "Insurer Pays",
-      description: "For eligible not-at-fault drivers, we recover costs from the at-fault insurer.",
-      icon: <CheckCircle2 className="text-white" size={24} />
-    }
-  ];
+  {
+    number: "1",
+    title: "Contact Us",
+    description: "Tell us about your accident and provide your vehicle details.",
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    number: "2",
+    title: "Get Approved",
+    description: "We assess your eligibility and arrange approval quickly.",
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    number: "3",
+    title: "We Deliver",
+    description: "We deliver a like-for-like replacement vehicle directly to you.",
+    image:
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    number: "4",
+    title: "Insurer Pays",
+    description: "For eligible not-at-fault drivers, we recover costs from the at-fault insurer.",
+    image:
+      "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80"
+  }
+];
 
   return (
-    <div className="pt-12">
+    <div className="pt-5 min-h-[650px]">
       {/* Hero Section */}
-      <section className="relative min-h-[calc(100vh-80px)] flex items-center bg-brand-dark overflow-hidden p-8 md:p-16">
+      <section className="relative h-[720px] flex items-center bg-brand-dark overflow-hidden px-8 pt-12 pb-36">
         {/* Background Decorative Elements */}
         <div className="absolute top-[-15%] right-[-10%] w-[800px] h-[800px] bg-brand-blue/10 rounded-full blur-[140px]"></div>
         <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-indigo-600/5 rounded-full blur-[120px]"></div>
@@ -45,23 +50,14 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="label-caps mb-8 text-slate-500">Accident Replacement Vehicle Specialists</div>
-              <h1 className="text-[14vw] lg:text-[112px] font-black leading-[0.85] tracking-tighter uppercase mb-12">
+              <div className="label-caps mb-8 text-slate-500"></div>
+              <h1 className="text-[11vw] lg:text-[92px] font-black leading-[0.9] tracking-tight uppercase mb-8">
                 FAST ACCIDENT<br/><span className="text-brand-blue">REPLACEMENT</span><br/><span className="text-brand-blue">VEHICLES</span>
               </h1>
-              <p className="max-w-lg text-lg text-slate-400 leading-relaxed font-medium mb-12">
+              <p className="max-w-xl text-xl text-slate-400 leading-8 mb-8">
                 Fast and reliable replacement vehicles for eligible not-at-fault drivers across Melbourne, keeping you moving while your vehicle is repaired.
               </p>
               
-              <div className="flex flex-col sm:flex-row items-center gap-8">
-                <Link
-                  to="/request"
-                  className="btn-primary w-full sm:w-auto"
-                >
-                  Request a Vehicle
-                </Link>
-
-              </div>
             </motion.div>
           </div>
           
@@ -108,11 +104,30 @@ export default function Home() {
 </div>
         {/* </div> */}
       </section>
-
+<div className="absolute top-20 left-20 w-80 h-80 rounded-full bg-[#0097B2]/5 blur-[120px]"></div>
+<section
+  id="eligibility"
+  className="relative bg-white"
+>
+<div
+className="
+max-w-6xl
+mx-auto
+px-6
+relative
+-top-24
+z-40
+"
+>
+    <EligibilityWidget />
+  </div>
+</section>
+{/* <div className="h-12"></div> */}
+<div className="absolute bottom-20 right-20 w-96 h-96 rounded-full bg-[#0097B2]/5 blur-[150px]"></div>
       {/* Steps Section */}
-      <section className="py-32 bg-white text-brand-dark">
+      <section className="pt-0 pb-32 bg-gradient-to-b from-white via-[#F9FCFD] to-white text-brand-dark relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-24">
+          <div className="text-center mb-16">
             <div className="label-caps mb-4 text-brand-blue">
               How It Works
             </div>
@@ -122,18 +137,54 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-slate-200">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, idx) => (
               <motion.div
-                key={idx}
-                className="p-12 border-slate-200 border-r last:border-r-0 md:odd:border-r last:md:odd:border-r-0 lg:border-r last:lg:border-r-0 border-b lg:border-b-0 hover:bg-slate-50 transition-colors group"
-              >
-                <div className="text-[64px] font-black text-slate-100 group-hover:text-brand-blue/40 transition-colors mb-4 leading-none">
-                  0{step.number}
-                </div>
-                <h3 className="text-xl font-black uppercase mb-4 tracking-tighter">{step.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed font-medium">{step.description}</p>
-              </motion.div>
+  key={idx}
+      initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: idx * 0.15 }}
+    whileHover={{
+        y: -12,
+        scale: 1.03
+    }}
+  className="
+relative
+overflow-hidden
+rounded-3xl
+bg-gradient-to-br
+from-white
+via-white
+to-[#F5FCFE]
+border
+border-slate-200
+shadow-lg
+hover:-translate-y-3
+hover:shadow-[0_20px_60px_rgba(0,151,178,0.25)]
+hover:ring-2
+hover:ring-[#0097B2]
+transition-all
+duration-500
+group
+p-10
+"
+>
+                <div className="text-[84px] font-black text-[#0097B2]/8 group-hover:text-[#0097B2]/20 transition-all duration-300 leading-none">
+    0{step.number}
+</div>
+<div className="mb-8 overflow-hidden rounded-2xl">
+    <img
+        src={step.image}
+        alt={step.title}
+        className="w-full h-44 object-cover transition-transform duration-700 group-hover:scale-110"
+    />
+</div>
+<div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-[#0097B2]/10 blur-3xl group-hover:bg-[#0097B2]/20 transition-all duration-500"></div>
+                <h3 className="text-2xl font-black font-black uppercase mb-4 tracking-tighter">{step.title}</h3>
+                <p className="text-slate-500 text-base leading-8 text-slate-500 leading-relaxed font-medium">{step.description}</p>
+                
+            </motion.div>
             ))}
           </div>
         </div>
@@ -196,10 +247,10 @@ export default function Home() {
               Call 0495 00 44 55
             </a>
             <Link 
-              to="/request" 
+              to="/eligibility"
               className="bg-brand-dark text-white px-12 py-6 font-black uppercase text-sm tracking-widest hover:bg-white hover:text-black transition-all shadow-2xl"
             >
-              Request a Vehicle
+              Check Eligibility
             </Link>
           </div>
         </div>

@@ -34,7 +34,7 @@ export default function FAQ() {
   ];
 
   return (
-    <div className="pt-20">
+    <div className="pt-5 min-h-screen">
       {/* Header */}
 <section className="bg-brand-dark py-24 relative overflow-hidden">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

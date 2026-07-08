@@ -26,7 +26,7 @@ export default function About() {
   ];
 
   return (
-    <div className="pt-20">
+    <div className="pt-5 min-h-screen">
       {/* Header */}
       <section className="bg-brand-dark py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -37,7 +37,7 @@ export default function About() {
           >
             <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6">About <span className="text-[#0097B2]">Crash Cover</span></h1>
             <p className="text-xl text-gray-400 leading-relaxed">
-              Melbourne's premier accident replacement vehicle specialist, keeping not-at-fault drivers on the road since our inception.
+              Helping eligible drivers across Victoria stay mobile with professional accident replacement vehicles and dedicated claims support.
             </p>
           </motion.div>
         </div>
@@ -56,11 +56,11 @@ export default function About() {
               <h2 className="text-3xl font-heading font-bold text-brand-dark mb-6">Who We Are</h2>
               <div className="space-y-6 text-gray-600 leading-relaxed">
                 <p>
-                  Crash Cover is a Melbourne-based accident replacement vehicle provider helping eligible not-at-fault drivers stay on the road while their vehicles are being repaired.
+                  Crash Cover provides accident replacement vehicles to eligible drivers across Victoria, ensuring minimal disruption while their vehicle is being repaired or assessed.
                 </p>
 
                 <p>
-                  Working closely with repairers, insurers and accident management partners, we deliver fast replacement vehicles with a simple, stress-free experience from start to finish.
+                  Working alongside repairers, insurers and accident management partners, we coordinate every stage of the replacement process, making it straightforward from first contact through to vehicle return.
                 </p>
               </div>
             </motion.div>
@@ -92,7 +92,7 @@ export default function About() {
               </div>
               <h3 className="text-2xl font-heading font-bold text-brand-dark mb-4">Our Mission</h3>
               <p className="text-gray-600 leading-relaxed">
-                To provide fast, reliable, and hassle-free accident replacement vehicles while delivering outstanding customer service and support throughout the claims process.
+                To simplify accident mobility by delivering professional replacement vehicle solutions with responsive service and expert claims assistance.
               </p>
             </motion.div>
 
@@ -113,7 +113,7 @@ export default function About() {
   </h3>
 
   <p className="text-gray-600 leading-relaxed">
-    To become Australia's most trusted accident replacement vehicle provider by simplifying mobility solutions for not-at-fault drivers.
+    To set the benchmark for accident mobility services through trusted partnerships, exceptional customer care and innovative replacement vehicle solutions.
   </p>
 </motion.div>
           </div>
@@ -124,7 +124,7 @@ export default function About() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-heading font-bold text-brand-dark mb-4">Business Objectives</h2>
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-brand-dark mb-4">Our Commitments</h2>
             <div className="w-20 h-1.5 bg-brand-blue mx-auto rounded-full"></div>
           </div>
           
@@ -132,22 +132,22 @@ export default function About() {
             {[
   {
     title: "Fast Delivery",
-    desc: "Quick replacement vehicle allocation.",
+    desc: "Rapid assessment and vehicle allocation to minimise downtime.",
     icon: <Clock3 size={28} />
   },
   {
     title: "Customer First",
-    desc: "Reducing downtime and keeping you moving.",
+    desc: "Delivering a smooth customer experience from accident to vehicle return.",
     icon: <HeartHandshake size={28} />
   },
   {
     title: "Claims Support",
-    desc: "Guidance throughout the insurance process.",
+    desc: "Providing professional assistance throughout every stage of the insurance claim.",
     icon: <FileCheck size={28} />
   },
   {
     title: "Growth",
-    desc: "Expanding services across Victoria & Australia.",
+    desc: "Growing our network to support more drivers across Australia.",
     icon: <MapPinned size={28} />
   }
 ].map((obj, idx) => (
