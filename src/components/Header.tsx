@@ -60,7 +60,7 @@ scrolled
             <img
               src={scrolled ? "/logo4.png" : "/logo.png"}
               alt="Crash Cover"
-              className="h-20 lg:h-28 w-auto object-contain"
+              className="h-28 lg:h-36 w-[260px] object-contain"
             />
           </Link>
 
