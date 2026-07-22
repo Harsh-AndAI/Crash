@@ -31,6 +31,24 @@ const handleAnswer = (answer: string) => {
   const updated = [...answers, answer];
   setAnswers(updated);
 
+  // CASE 1
+  // If user selects YES for "Was the accident your fault?"
+  // show Not Eligible immediately.
+  if (step === 0 && answer === "Yes") {
+    navigate("/eligibility/not-eligible");
+    return;
+  }
+
+  // CASE 2
+  // If user selects NO for
+  // "Does the other party have car insurance?"
+  // show Not Eligible immediately.
+  if (step === 2 && answer === "No") {
+    navigate("/eligibility/not-eligible");
+    return;
+  }
+
+  // Continue to next question
   if (step < questions.length - 1) {
     setStep(step + 1);
     return;
@@ -72,15 +90,13 @@ const handleAnswer = (answer: string) => {
       result = "not-eligible";
   }
 
-if (result === "eligible") {
-  setEligible(true);
-}
-else if (result === "more-info") {
-  navigate("/eligibility/more-info");
-}
-else {
-  navigate("/eligibility/not-eligible");
-}
+  if (result === "eligible") {
+    setEligible(true);
+  } else if (result === "more-info") {
+    navigate("/eligibility/more-info");
+  } else {
+    navigate("/eligibility/not-eligible");
+  }
 };
 
 if (eligible) {

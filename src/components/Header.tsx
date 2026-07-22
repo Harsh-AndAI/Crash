@@ -8,6 +8,9 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const hideEligibilityButton =
+  location.pathname === "/eligibility" ||
+  location.pathname === "/request";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 300);
@@ -58,7 +61,7 @@ scrolled
           {/* Logo container with size scaled to a clean mid-range height */}
           <Link to="/" className="flex items-center shrink-0">
             <img
-              src={scrolled ? "/logo4.png" : "/logo.png"}
+              src={scrolled ? "/logo5.png" : "/logo6.png"}
               alt="Crash Cover"
               className="h-28 lg:h-36 w-[260px] object-contain"
             />
@@ -86,14 +89,16 @@ ${
             
           {/* Action Buttons Side Panel */}
 <div className="hidden md:flex items-center border-l border-slate-300 pl-6 shrink-0">
-
-<Link
-  to="/eligibility"
-  className="label-caps text-xs lg:text-sm bg-[#0097B2] text-white hover:bg-[#007A90] px-4 py-2 rounded font-bold"
->
-  Check Eligibility
-</Link>
-
+  {hideEligibilityButton ? (
+    <div className="w-[170px]" />
+  ) : (
+    <Link
+      to="/eligibility"
+      className="label-caps text-xs lg:text-sm bg-[#0097B2] text-white hover:bg-[#007A90] px-4 py-2 rounded font-bold"
+    >
+      Check Eligibility
+    </Link>
+  )}
 </div>
           
 
@@ -137,12 +142,15 @@ ${
               ))}
               
 <>
-<Link
-  to="/eligibility"
-  className="label-caps text-xs lg:text-sm bg-[#0097B2] text-white hover:bg-[#007A90] px-4 py-2 rounded font-bold"
->
-  Check Eligibility
-</Link>
+{!hideEligibilityButton && (
+  <Link
+    to="/eligibility"
+    onClick={() => setIsOpen(false)}
+    className="label-caps text-xs lg:text-sm bg-[#0097B2] text-white hover:bg-[#007A90] px-4 py-2 rounded font-bold"
+  >
+    Check Eligibility
+  </Link>
+)}
 </>
             </div>
           </motion.div>

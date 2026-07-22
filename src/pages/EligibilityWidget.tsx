@@ -32,44 +32,61 @@ const handleAnswer = (answer: string) => {
   const updated = [...answers, answer];
   setAnswers(updated);
 
+  // CASE 1:
+  // If user answers YES to "Was the accident your fault?"
+  // immediately show Not Eligible.
+  if (step === 0 && answer === "Yes") {
+    setResult("not-eligible");
+    return;
+  }
+
+  // CASE 2:
+  // If user answers NO to
+  // "Does the other party have car insurance?"
+  // immediately show Not Eligible.
+  if (step === 2 && answer === "No") {
+    setResult("not-eligible");
+    return;
+  }
+
+  // Continue to next question
   if (step < questions.length - 1) {
     setStep(step + 1);
     return;
   }
 
   const fault = updated[0];
-const contact = updated[1];
-const insurance = updated[2];
+  const contact = updated[1];
+  const insurance = updated[2];
 
-const rules: Record<string, "eligible" | "not-eligible" | "more-info"> = {
-  // Fault = No
-  "No|Yes|Yes": "eligible",
-  "No|Yes|No": "not-eligible",
-  "No|Yes|Unsure": "more-info",
-  "No|No|Yes": "more-info",
-  "No|No|No": "not-eligible",
-  "No|No|Unsure": "more-info",
+  const rules: Record<string, "eligible" | "not-eligible" | "more-info"> = {
+    // Fault = No
+    "No|Yes|Yes": "eligible",
+    "No|Yes|No": "not-eligible",
+    "No|Yes|Unsure": "more-info",
+    "No|No|Yes": "more-info",
+    "No|No|No": "not-eligible",
+    "No|No|Unsure": "more-info",
 
-  // Fault = Yes
-  "Yes|Yes|Yes": "not-eligible",
-  "Yes|Yes|No": "not-eligible",
-  "Yes|Yes|Unsure": "not-eligible",
-  "Yes|No|Yes": "not-eligible",
-  "Yes|No|No": "not-eligible",
-  "Yes|No|Unsure": "not-eligible",
+    // Fault = Yes
+    "Yes|Yes|Yes": "not-eligible",
+    "Yes|Yes|No": "not-eligible",
+    "Yes|Yes|Unsure": "not-eligible",
+    "Yes|No|Yes": "not-eligible",
+    "Yes|No|No": "not-eligible",
+    "Yes|No|Unsure": "not-eligible",
 
-  // Fault = Unsure
-  "Unsure|Yes|Yes": "more-info",
-  "Unsure|Yes|No": "more-info",
-  "Unsure|Yes|Unsure": "more-info",
-  "Unsure|No|Yes": "more-info",
-  "Unsure|No|No": "not-eligible",
-  "Unsure|No|Unsure": "more-info",
-};
+    // Fault = Unsure
+    "Unsure|Yes|Yes": "more-info",
+    "Unsure|Yes|No": "more-info",
+    "Unsure|Yes|Unsure": "more-info",
+    "Unsure|No|Yes": "more-info",
+    "Unsure|No|No": "not-eligible",
+    "Unsure|No|Unsure": "more-info",
+  };
 
-const key = `${fault}|${contact}|${insurance}`;
-
-setResult(rules[key]);
+  const key = `${fault}|${contact}|${insurance}`;
+  setResult(rules[key]);
 };
 
 if (result) {
