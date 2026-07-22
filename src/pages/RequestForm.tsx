@@ -43,7 +43,7 @@ export default function RequestForm() {
   atFaultEmail: "",
 
     // Usage
-    ctvRegistration: false,
+    CPVRegistration: false,
 
     // Repair Shop
     repairerDetails: "",
@@ -85,7 +85,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     form.append("atFaultMobile", formData.atFaultMobile);
     form.append("atFaultEmail", formData.atFaultEmail);
 
-    form.append("ctvRegistration", formData.ctvRegistration ? "Yes" : "No");
+    form.append("CPVRegistration", formData.CPVRegistration ? "Yes" : "No");
     form.append("repairerDetails", formData.repairerDetails);
     form.append("timeOfAccident", formData.timeOfAccident);
     form.append("accidentDescription", formData.accidentDescription);
@@ -227,7 +227,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
-                      <label className="label-caps mb-2 block text-[8px]">Full Name</label>
+                      <label className="label-caps mb-2 block text-[8px]">Full Name *</label>
                       <input 
                         required
                         name="fullName"
@@ -252,7 +252,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   />
 </div>
                     <div>
-                      <label className="label-caps mb-2 block text-[8px]">Mobile Number</label>
+                      <label className="label-caps mb-2 block text-[8px]">Mobile Number *</label>
                       <input 
                         required
                         name="mobileNumber"
@@ -278,7 +278,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 </div>
 
                     <div>
-                      <label className="label-caps mb-2 block text-[8px]">Email Address (Email)</label>
+                      <label className="label-caps mb-2 block text-[8px]">Email Address (Email) *</label>
                       <input 
                         required
                         type="email"
@@ -307,7 +307,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     {/* Driver Licence Image Upload */}
                     <div className="md:col-span-2 mt-2">
                       <label className="label-caps mb-2 block text-slate-700 font-semibold text-xs">
-                        Driver Licence
+                        Driver Licence *
                       </label>
                       <input
                         required
@@ -344,7 +344,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
-                      <label className="label-caps mb-2 block text-[8px]">Vehicle Make</label>
+                      <label className="label-caps mb-2 block text-[8px]">Vehicle Make *</label>
                       <input 
                         required
                         name="vehicleMake"
@@ -355,7 +355,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                       />
                     </div>
                     <div>
-                      <label className="label-caps mb-2 block text-[8px]">Vehicle Model</label>
+                      <label className="label-caps mb-2 block text-[8px]">Vehicle Model *</label>
                       <input 
                         required
                         name="vehicleModel"
@@ -377,28 +377,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                       />
                     </div>
 
-                    <div className="md:col-span-2">
-  <label className="label-caps mb-2 block text-[8px]">
-    CTV Registration *
-  </label>
-
-  <select
-    required
-    name="ctvRegistration"
-value={formData.ctvRegistration ? "Yes" : ""}
-onChange={(e) =>
-  setFormData(prev => ({
-    ...prev,
-    ctvRegistration: e.target.value === "Yes"
-  }))
-}
-    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[#151515]"
-  >
-    <option value="">Select</option>
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
-  </select>
-</div>
                   </div>
                 </section>
 
@@ -541,7 +519,7 @@ onChange={(e) =>
   
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
     <div>
-      <label className="label-caps mb-2 block text-[8px]">Date of Accident</label>
+      <label className="label-caps mb-2 block text-[8px]">Date of Accident *</label>
       <input 
         required
         type="date"
@@ -567,7 +545,7 @@ onChange={(e) =>
 </div>
 
     <div>
-      <label className="label-caps mb-2 block text-[8px]">Where did the accident happen?</label>
+      <label className="label-caps mb-2 block text-[8px]">Where did the accident happen? *</label>
       <input 
         required
         name="accidentLocation"
@@ -606,6 +584,28 @@ onChange={(e) =>
     className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[#151515]"
     placeholder="Describe how the accident occurred..."
   />
+</div>
+<div className="md:col-span-2">
+  <label className="label-caps mb-2 block text-[8px]">
+    CPV Registered Vehicle Required  *
+  </label>
+
+  <select
+    required
+    name="CPVRegistration"
+value={formData.CPVRegistration ? "Yes" : ""}
+onChange={(e) =>
+  setFormData(prev => ({
+    ...prev,
+    CPVRegistration: e.target.value === "Yes"
+  }))
+}
+    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[#151515]"
+  >
+    <option value="">Select</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  </select>
 </div>
     {/* Accident Photos - NOW OUTSIDE AND GIVEN FULL WIDTH */}
     <div className="md:col-span-2 mt-2">

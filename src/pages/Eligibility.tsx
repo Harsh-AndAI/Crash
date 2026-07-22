@@ -101,36 +101,36 @@ const handleAnswer = (answer: string) => {
 
 if (eligible) {
   return (
-    <div className="fixed inset-0 z-[100] bg-gradient-to-br from-[#07161C] via-[#0B2028] to-[#0F2D38] flex items-center justify-center px-4">
+    <div className="fixed inset-0 z-[100] bg-gradient-to-br from-[#07161C] via-[#0B2028] to-[#0F2D38] flex items-center justify-center p-4 overflow-y-auto">
 
       <motion.div
 initial={{ opacity: 0, scale: 0.92, y: 40 }}
 animate={{ opacity: 1, scale: 1, y: 0 }}
 transition={{ duration: 0.45 }}
-className="bg-white rounded-[36px] shadow-[0_30px_80px_rgba(0,0,0,.35)] p-14 max-w-2xl w-full text-center"
+className="bg-white rounded-[28px] shadow-[0_30px_80px_rgba(0,0,0,.35)] p-8 md:p-14 max-w-2xl w-full text-center my-8"
 >
 
         <CheckCircle
-          size={90}
+          size={70}
           className="mx-auto text-green-500 mb-8"
         />
 
-        <h1 className="text-5xl font-black text-[#151515] mb-5">
+        <h1 className="text-3xl md:text-5xl font-black text-[#151515] mb-4">
           Congratulations!
         </h1>
 
-        <p className="text-2xl font-semibold text-[#0097B2] mb-6">
-          Great news! Your crash appears to be eligible.
+        <p className="text-lg md:text-2xl font-semibold text-[#0097B2] mb-5">
+          Your crash appears to be eligible.
         </p>
 
-        <p className="text-slate-500 text-lg leading-8 mb-10">
+        <p className="text-slate-500 text-base md:text-lg leading-7 mb-8">
           Based on your answers, you're likely eligible for a replacement
           vehicle. Continue below to complete your application.
         </p>
 
         <button
           onClick={() => navigate("/request")}
-          className="bg-[#0097B2] hover:bg-[#007A90] text-white px-10 py-4 rounded-xl font-bold text-lg transition-all"
+          className="w-full md:w-auto bg-[#0097B2] hover:bg-[#007A90] text-white px-8 py-4 rounded-xl font-bold text-base md:text-lg transition-all"
         >
           Continue to Application →
         </button>
